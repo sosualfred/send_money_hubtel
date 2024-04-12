@@ -70,6 +70,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -80,6 +81,7 @@ class HomeScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(6),
               ),
               backgroundColor: const Color(0xFF01C7B1),
+              elevation: 10,
             ),
             onPressed: () {},
             child: Container(
@@ -106,63 +108,73 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 2,
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.black,
-        selectedLabelStyle: const TextStyle(
-          fontWeight: FontWeight.w800,
-          fontSize: 10,
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black45,
+              blurRadius: 1.0,
+            ),
+          ],
         ),
-        unselectedLabelStyle: const TextStyle(
-          fontSize: 10,
-          color: Colors.black,
-        ),
-        items: [
-          BottomNavigationBarItem(
-            icon: Container(
-              decoration: const BoxDecoration(
-                color: Color(0xFFCCF3EF),
-                shape: BoxShape.circle,
+        child: BottomNavigationBar(
+          currentIndex: 2,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: Colors.black,
+          selectedLabelStyle: const TextStyle(
+            fontWeight: FontWeight.w800,
+            fontSize: 10,
+          ),
+          unselectedLabelStyle: const TextStyle(
+            fontSize: 10,
+            color: Colors.black,
+          ),
+          items: [
+            BottomNavigationBarItem(
+              icon: Container(
+                decoration: const BoxDecoration(
+                  color: Color(0xFFCCF3EF),
+                  shape: BoxShape.circle,
+                ),
+                padding: const EdgeInsets.all(8),
+                child: SvgPicture.asset(
+                  SvgAssets.homeIcon,
+                  width: 25,
+                  height: 25,
+                  fit: BoxFit.contain,
+                ),
               ),
-              padding: const EdgeInsets.all(8),
-              child: SvgPicture.asset(
-                SvgAssets.homeIcon,
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                SvgAssets.sendIcon,
                 width: 25,
                 height: 25,
                 fit: BoxFit.contain,
               ),
+              label: 'Send',
             ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              SvgAssets.sendIcon,
-              width: 25,
-              height: 25,
-              fit: BoxFit.contain,
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                SvgAssets.historyIcon,
+                width: 25,
+                height: 25,
+                fit: BoxFit.contain,
+              ),
+              label: 'History',
             ),
-            label: 'Send',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              SvgAssets.historyIcon,
-              width: 25,
-              height: 25,
-              fit: BoxFit.contain,
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                SvgAssets.scheduleIcon,
+                width: 25,
+                height: 25,
+                fit: BoxFit.contain,
+              ),
+              label: 'Scheduled',
             ),
-            label: 'History',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              SvgAssets.scheduleIcon,
-              width: 25,
-              height: 25,
-              fit: BoxFit.contain,
-            ),
-            label: 'Scheduled',
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
