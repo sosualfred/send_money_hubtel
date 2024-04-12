@@ -18,6 +18,48 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Tabbar
+                Container(
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFE6EAED),
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  height: 42,
+                  padding: const EdgeInsets.all(2),
+                  child: DefaultTabController(
+                    length: 2,
+                    child: TabBar(
+                      tabs: const [
+                        Tab(
+                          text: 'History',
+                        ),
+                        Tab(
+                          text: 'Transaction Summary',
+                        ),
+                      ],
+                      labelColor: Colors.black,
+                      unselectedLabelColor: Colors.black.withOpacity(0.2),
+                      labelStyle: const TextStyle(
+                        fontWeight: FontWeight.w800,
+                        fontSize: 14,
+                      ),
+                      unselectedLabelStyle: const TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
+                      ),
+                      indicator: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Divider(
+                  color: Colors.grey[300],
+                  thickness: 1,
+                ),
+                const SizedBox(height: 16),
                 Row(
                   children: [
                     Expanded(
